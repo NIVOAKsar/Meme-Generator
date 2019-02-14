@@ -33,17 +33,19 @@ function drawImg() {
 }
 
 function drawText() {
-    // debugger
-    var elTxt = document.querySelector('.text-container');
-    var rect = elTxt.getBoundingClientRect();
-    console.log(rect.top, rect.right, rect.bottom, rect.left);
-    // console.log(e)
-    var text = elTxt.value;
+    var el = document.getElementById('text-container');
+
+    var textWidth = gCtx.measureText(el.value).width;
+    var leftPosToRender = el.offsetLeft + (el.offsetWidth / 2) - (textWidth);
+    var topPosToRender = el.offsetTop + (el.offsetHeight/2) +7 ;
+
+    var text = el.value;
     gCtx.fillStyle = 'white';
     gCtx.font = '20px Impact';
-    console.log(elTxt);
-    gCtx.fillText(text, 300, 25);
-    elTxt.style.display = 'none';
+
+    gCtx.fillText(text, leftPosToRender, topPosToRender);
+    //hide the input element
+    el.style.display = 'none';
 }
 function onMouseMove(el, ev) {
     if (isDraggable) {
