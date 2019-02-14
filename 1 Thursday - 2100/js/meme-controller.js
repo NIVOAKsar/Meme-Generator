@@ -10,6 +10,8 @@ function init() {
 
 function renderMeme() {
     var meme = readMeme();
+
+    var elTxt = document.querySelector('.text-container');
     console.table(meme);
 }
 
@@ -22,6 +24,7 @@ function setCanvasOnBoard() {
     gCanvas = document.getElementById('meme-canvas');
     gCtx = gCanvas.getContext('2d');
     drawImg();
+
 }
 
 
@@ -30,7 +33,15 @@ function drawImg() {
     gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height);
 }
 
-
+function drawText() {
+    debugger
+    var elTxt = document.querySelector('.text-container');
+    var text = elTxt.value;
+    gCtx.fillStyle = 'white';
+    gCtx.font = '20px Impact';
+    gCtx.fillText(text, 10, 20);
+    elTxt.style.display = 'none';
+}
 
 function onChangeTextProp(id, value) {
     updateTextProp(id, value);
@@ -39,6 +50,7 @@ function onChangeTextProp(id, value) {
 
 function onSubmitForm(ev) {
     event.preventDefault()
+    debugger
     let meme = {
         imgId: readMeme().imgId,
         txts: {
@@ -49,5 +61,6 @@ function onSubmitForm(ev) {
         }
     }
     genMeme(meme);
+    drawText();
     renderMeme();
 }
