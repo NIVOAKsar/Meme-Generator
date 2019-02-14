@@ -37,7 +37,6 @@ function createMeme() {
 }
 
 function genMeme(meme) {
-    console.log('hey');
     gMeme = meme;
 }
 
@@ -54,8 +53,4 @@ function readMeme() {
 }
 
 
-function drawImg() {
-    var img = document.querySelector('img');
-    gCtx.drawImage(img, 0, 0, gCanvas.width / 2, gCanvas.height / 2);
-}
 

@@ -13,7 +13,7 @@ function renderMeme() {
     var meme = readMeme();
 
     var elTxt = document.querySelector('.text-container');
-    console.table(meme);
+    // console.table(meme);
 }
 
 function onChangeMemeProp(id, value) {
@@ -33,11 +33,9 @@ function drawImg() {
 }
 
 function drawText() {
-    // debugger
     var elTxt = document.querySelector('.text-container');
     var rect = elTxt.getBoundingClientRect();
     console.log(rect.top, rect.right, rect.bottom, rect.left);
-    // console.log(e)
     var text = elTxt.value;
     gCtx.fillStyle = 'white';
     gCtx.font = '20px Impact';
@@ -67,7 +65,6 @@ function onChangeTextProp(id, value) {
 
 function onSubmitForm(ev) {
     event.preventDefault()
-    // debugger
     let meme = {
         imgId: readMeme().imgId,
         txts: {
@@ -81,3 +78,11 @@ function onSubmitForm(ev) {
     drawText();
     renderMeme();
 }
+
+function onDownloadLink(elLink) {
+    console.log(elLink);
+    console.log(gCanvas);
+    elLink.href = gCanvas.toDataURL();
+    elLink.download = 'my-img.jpg';
+}
+
