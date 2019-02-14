@@ -1,0 +1,14 @@
+/* Base */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-family: play, serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
