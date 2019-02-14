@@ -11,9 +11,15 @@
 </head>
 
 <body onload="init()">
-    <header></header>
-    <main></main>
-    <footer></footer>
+    <div class="main-wrapper flex">
+        <div class="form">Form Area</div>
+        <div class="canvas-wrapper flex">
+            <canvas id="meme-canvas" width="640" height="480">
+                Canvas Area
+            </canvas>            
+        </div>
+        <img src="meme-imgs/003.jpg" hidden alt="">
+    </div>
     <script src="lib/jquery/jquery.js"></script>
     <script src="lib/bootstrap/bootstrap.js"></script>
     <script src="js/utils.js"></script>

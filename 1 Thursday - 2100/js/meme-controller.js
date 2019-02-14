@@ -1,8 +1,11 @@
 'use strict';
+var gCanvas;
+var gCtx;
 
 function init() {
     initMeme();
     render();
+    setCanvasOnBoard();
 }
 
 function render() {
@@ -14,6 +17,20 @@ function onChangeProp() {
     updateMeme('imgId', 2);
     render();
 }
+
+function setCanvasOnBoard() {
+    gCanvas = document.getElementById('meme-canvas');
+    gCtx = gCanvas.getContext('2d');
+    drawImg();
+}
+
+
+function drawImg() {
+    var img = document.querySelector('img');
+    gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height);
+}
+
+
 
 
 /* CONTROLLER*/
