@@ -53,8 +53,10 @@ canvas {
 
 .text-container {
     position: absolute;
-    left: 0;
-    top: 0;
+    left: 200px;
+    top: 5px;
+    width:200px;
+    text-align: center;
     background-color:transparent;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     color:white;
