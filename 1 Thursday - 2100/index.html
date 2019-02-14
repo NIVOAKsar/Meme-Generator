@@ -11,21 +11,30 @@
 </head>
 
 <body onload="init()">
-    <form id="memeForm">
-        <section id="formTxt">
-            <input type="text" id="content" name="content" placeholder="enter content"
-                onchange="onChangeTextProp(id,value)" />
-            <input id="size" type="range" name="size" value="20" />
-            <input id="color" type="color" name="color" value="#ffffff" />
-            <select id="align" name="align">
-                <option value="left">LEFT</option>
-                <option value="center">CENTER</option>
-                <option value="right">RIGHT</option>
-            </select>
-            <button value="submit" onclick="onSubmitForm(event)"></button>
-        </section>
-        <section></section>
-    </form>
+    <div class="main-wrapper flex">
+        <form id="memeForm">
+            <section id="formTxt">
+                <input type="text" id="content" name="content" placeholder="enter content"
+                    onchange="onChangeTextProp(id,value)" />
+                <input id="size" type="range" name="size" value="20" />
+                <input id="color" type="color" name="color" value="#ffffff" />
+                <select id="align" name="align">
+                    <option value="left">LEFT</option>
+                    <option value="center">CENTER</option>
+                    <option value="right">RIGHT</option>
+                </select>
+                <button value="submit" onclick="onSubmitForm(event)"></button>
+            </section>
+            <section></section>
+        </form>
+        <div class="canvas-wrapper flex">
+            <canvas id="meme-canvas" width="640" height="480">
+                Canvas Area
+            </canvas>
+        </div>
+        <img src="meme-imgs/003.jpg" hidden alt="">
+    </div>
+
     <script src="lib/jquery/jquery.js"></script>
     <script src="lib/bootstrap/bootstrap.js"></script>
     <script src="js/utils.js"></script>

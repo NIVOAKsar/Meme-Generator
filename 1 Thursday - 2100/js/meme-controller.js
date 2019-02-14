@@ -1,7 +1,10 @@
 'use strict';
+var gCanvas;
+var gCtx;
 
 function init() {
     initMeme();
+    setCanvasOnBoard();
     renderMeme();
 }
 
@@ -14,6 +17,20 @@ function onChangeMemeProp(id, value) {
     updateMemeProp(id, value);
     renderMeme();
 }
+
+function setCanvasOnBoard() {
+    gCanvas = document.getElementById('meme-canvas');
+    gCtx = gCanvas.getContext('2d');
+    drawImg();
+}
+
+
+function drawImg() {
+    var img = document.querySelector('img');
+    gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height);
+}
+
+
 
 function onChangeTextProp(id, value) {
     updateTextProp(id, value);
