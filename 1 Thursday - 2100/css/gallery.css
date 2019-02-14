@@ -1,0 +1,39 @@
+/* Base */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-family: play, serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.main-header{
+    height: 150px;
+    background-color: red;
+}
+
+/* Helpers */
+
+.wrapper{
+    margin: 0 auto;
+}
+
+.flex{
+    display: flex;
+}
+
+.space-around{
+    justify-content: space-around;
+}
+.space-between{
+    justify-content: space-between;
+}
+.space-evenly{
+    justify-content: space-evenly;
+}

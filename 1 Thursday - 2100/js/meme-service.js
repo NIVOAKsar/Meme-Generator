@@ -1,11 +1,27 @@
 'use strict';
 
-var gImgs = [{ id: 1, url: 'img/popo.jpg', keywords: ['happy'] }];
+var gImgs = [];
 var gMeme = {};
 
 
 function initMeme() {
+    gImgs = createImgs();
     gMeme = createMeme();
+    console.log(gImgs);
+}
+
+function createImgs() {
+    for (let i = 1; i <= 25; i++) {
+        gImgs.push(createImg('' + i, `meme-imgs/${i}.jpg`));
+    }
+}
+
+function createImg(id, url, keywords) {
+    return {
+        id: id,
+        url: url,
+        keywords: 'happy'
+    };
 }
 
 function createMeme() {
