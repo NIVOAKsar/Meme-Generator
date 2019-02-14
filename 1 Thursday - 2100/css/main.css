@@ -34,3 +34,7 @@ canvas {
 .row-reverse {
     flex-direction: row-reverse;
 }
+#memeForm{
+    display: flex;
+    flex-direction: column;
+}

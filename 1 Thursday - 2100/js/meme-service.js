@@ -12,7 +12,7 @@ function createMeme() {
     return {
         imgId: 1,
         txts: {
-            line: 'default',
+            content: 'default',
             size: 20,
             align: 'center',
             color: 'white'
@@ -20,8 +20,17 @@ function createMeme() {
     };
 }
 
-function updateMeme(prop, value) {
+function genMeme(meme) {
+    console.log('hey');
+    gMeme = meme;
+}
+
+function updateMemeProp(prop, value) {
     gMeme[prop] = value;
+}
+
+function updateTextProp(prop, value) {
+    gMeme['txts'][prop] = value;
 }
 
 function readMeme() {
