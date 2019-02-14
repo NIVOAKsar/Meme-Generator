@@ -5,7 +5,8 @@
 }
 
 html {
-    font-family: play, serif;
+    font-family: impact, serif;
+    color: white;
 }
 
 body {
@@ -19,6 +20,7 @@ canvas {
 
 .canvas-wrapper {
     border: 2px solid blue;
+    position: relative;
 }
 
 .flex {
@@ -34,7 +36,19 @@ canvas {
 .row-reverse {
     flex-direction: row-reverse;
 }
-#memeForm{
+
+#memeForm {
     display: flex;
     flex-direction: column;
+}
+
+.text-container {
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color:transparent;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color:white;
+    font-size:20px;
+    text-shadow: 1px -2px 2px black;
 }
