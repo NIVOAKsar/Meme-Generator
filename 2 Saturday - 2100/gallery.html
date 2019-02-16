@@ -10,44 +10,48 @@
     <title></title>
 </head>
 
-<body>
-    <header class="main-header wrapper">
-        <div class="header-container flex space-between align-center">
-            <div class="main-logo">The Meme Generator</div>
-            <nav class="main-nav">
-                <span>Home</span>
-                <span>About</span>
-            </nav>
-        </div>
-    </header>
-    <main class="main-body">
-        <div class="body-container">
-            <div class="img-grid grid">
-                <div class="img-grid-item1"></div>
-                <div class="img-grid-item2"></div>
-                <div class="img-grid-item3"></div>
-                <div class="img-grid-item4"></div>
-                <div class="img-grid-item5"></div>
-                <div class="img-grid-item6"></div>
-                <div class="img-grid-item7"></div>
-                <div class="img-grid-item8"></div>
-                <div class="img-grid-item9"></div>
-                <div class="img-grid-item10"></div>
-                <div class="img-grid-item11"></div>
-                <div class="img-grid-item12"></div>
-                <div class="img-grid-item13"></div>
-                <div class="img-grid-item14"></div>
-            </div>
-            <div class="about-container">
+<body onload="onLoad()">
+    <div class="main-layout-grid">
 
+        <!-- START HEADER -->
+
+        <header class="flex space-between align-center">
+            <div class="main-logo">Meme Gen. Logo</div>
+            <nav class="main-nav">
+                <span class="about">About</span>
+                <span class="home">Home</span>
+            </nav>
+        </header>
+
+        <!-- END HEADER -->
+
+        <!-- START GRID CONTAINER -->
+        <main class="gallery-grid-container"></main>
+
+        <!-- END GRID CONTAINER -->
+
+        <!-- START ASIDE -->
+        <aside>
+            <div>Search by popularity</div>
+            <div class="world-selector-container flex flex-wrap">Words to Search</div><br>
+            <div>Search Keyword</div>
+            <input type="text" class="textSearch" onkeydown="window.setTimeout( function(){ onKeyDown(event) }, 1)">
+            <div class="word-result-container">
+                
             </div>
-        </div>
-    </main>
+        </aside>
+        <!-- END ASIDE -->
+
+        <!-- START FOOTER -->
+        <footer class="flex align-center">Footer Area</footer>
+        <!-- END FOOTER -->
+    </div>
 
     <script src="lib/jquery/jquery.js"></script>
     <script src="lib/bootstrap/bootstrap.js"></script>
     <script src="js/utils.js"></script>
     <script src="js/gallery-controller.js"></script>
+    <script src="js/meme-service.js"></script>
 </body>
 
 </html>

@@ -11,8 +11,8 @@ function loadFromStorage(key) {
     return JSON.parse(dataStr);
 }
 
-function getRandomId() {
-    var length = 3;
+function getRandomId(idLength) {
+    var length = idLength;
     var txt = '';
     var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
 

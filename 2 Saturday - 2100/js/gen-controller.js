@@ -4,6 +4,7 @@
 function init() {
     initMeme();
     renderCanvas();
+    
 }
 
 function onChangePref(id, value) {
