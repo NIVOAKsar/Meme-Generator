@@ -1,37 +1,17 @@
 'use strict';
 
-var gImgs = [];
 var gMeme = {};
 
-
 function initMeme() {
-    gImgs = createImgs();
-    gMeme = createMeme();
-    initCanvas(gImgs[9]);
+    gMeme = createMeme(loadFromStorage('img'));
 }
 
-function createImgs() {
-    let imgs = [];
-    for (let i = 1; i <= 25; i++) {
-        var img = createImg('' + i, `meme-imgs/${i}.jpg`);
-        imgs.push(img);
-    }
-    return imgs;
-}
-
-function createImg(id, url, keywords) {
+function createMeme(img) {
     return {
-        id: id,
-        url: url,
-        keywords: 'happy'
-    };
-}
-
-function createMeme() {
-    return {
-        imgId: 1,
+        img: img,
         txt: {
-            'content': '',
+            'content-top': '',
+            'content-bottom': '',
             'size': '80px',
             'font-family': 'impact',
             'fill-style': '#ffffff',
@@ -44,13 +24,10 @@ function createMeme() {
     };
 }
 
-function genMeme(meme) {
-    gMeme = meme;
-}
-
-function updateText(prop, value) {
+function updateMeme(prop, value) {
     gMeme['txt'][prop] = value;
 }
+
 function readMeme() {
     return gMeme;
 }
