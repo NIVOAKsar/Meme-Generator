@@ -1,6 +1,5 @@
 'use strict';
 
-
 function initGen() {
     initMeme();
     createCanvas();

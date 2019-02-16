@@ -10,28 +10,49 @@
     <title></title>
 </head>
 
-<body onload="initGallery()">
-    <header class="main-header wrapper">
-        <div class="header-container flex space-between align-center">
-            <div class="main-logo">The Meme Generator</div>
+<body onload="onLoad()">
+    <div class="main-layout-grid">
+
+        <!-- START HEADER -->
+
+        <header class="flex space-between align-center">
+            <div class="main-logo">Meme Gen. Logo</div>
             <nav class="main-nav">
-                <span>Home</span>
-                <span>About</span>
+                <span class="about">About</span>
+                <span class="home">Home</span>
             </nav>
-        </div>
-    </header>
-    <main class="main-body">
-        <div class="body-container">
-            <div class="img-grid grid"></div>
-            <div class="about-container"></div>
-        </div>
-    </main>
+        </header>
+
+        <!-- END HEADER -->
+
+        <!-- START GRID CONTAINER -->
+        <main class="gallery-grid-container"></main>
+
+        <!-- END GRID CONTAINER -->
+
+        <!-- START ASIDE -->
+        <aside>
+            <div>Search by popularity</div>
+            <div class="word-selector-container flex flex-wrap">Words to Search</div><br>
+            <div>Search Keyword</div>
+            <input type="text" class="textSearch" onkeydown="window.setTimeout( function(){ onKeyDown(event) }, 1)">
+            <div class="word-result-container">
+                
+            </div>
+        </aside>
+        <!-- END ASIDE -->
+
+        <!-- START FOOTER -->
+        <footer class="flex align-center">Footer Area</footer>
+        <!-- END FOOTER -->
+    </div>
 
     <script src="lib/jquery/jquery.js"></script>
     <script src="lib/bootstrap/bootstrap.js"></script>
     <script src="js/utils.js"></script>
+    <script src="js/gallery-controller.js"></script>
+    <script src="js/meme-service.js"></script>
     <script src="js/img-service.js"></script>
-    <script src="js/gallery-main.js"></script>
 </body>
 
 </html>
