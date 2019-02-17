@@ -85,8 +85,9 @@ aside {
 }
 
 .keyword:hover{
-    color: gold;
-    /* text-shadow: 0px 0px 6px rgb(133, 226, 231); */
+    text-shadow: 0px 0px 6px rgb(133, 226, 231);
+    cursor: pointer;
+    color:gold;
 } 
 
 /* BODY */
