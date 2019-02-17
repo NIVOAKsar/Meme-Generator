@@ -71,7 +71,7 @@ function renderGallery() {
 
 function onImageSelected(el) {
     saveToStorage('img', { id: el.id, src: el.src, naturalWidth: el.naturalWidth, naturalHeight: el.naturalHeight });
-    window.location = 'index.html';
+    window.location = 'meme.html';
 }
 
 function onKeyDown(ev) {

@@ -7,16 +7,12 @@ function initGen() {
 }
 
 function onChangePref(id, value) {
-    // debugger
-    // if (id === 'content-top' || id === 'content-bottom') gLastSelectedInputId = id;
-
     console.log(value);
     updateMeme(id, value);
     // adjustPrefs(id);
     drawCanvas();
 }
-function onContentFocus(id){
-    // debugger
+function onContentFocus(id) {
     gLastSelectedInputId = id;
 }
 
@@ -26,6 +22,6 @@ function onDownloadLink(elLink, ev) {
     elLink.download = 'my-img.jpg';
 }
 
-function onCanvasClick(ev){
+function onCanvasClick(ev) {
     console.log(ev)
 }
