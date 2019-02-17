@@ -13,7 +13,8 @@ function onChangePref(id, value) {
     drawCanvas();
 }
 
-function onDownloadLink(elLink) {
+function onDownloadLink(elLink, ev) {
+    ev.preventDefault();
     elLink.href = gCanvas.toDataURL();
     elLink.download = 'my-img.jpg';
 }

@@ -32,17 +32,21 @@ function createCanvas() {
 function adjustSize() {
     let imgWidth = readMeme().img.naturalWidth;
     let imgHeight = readMeme().img.naturalHeight;
+
+    let oW = document.querySelector('.canvas-container').offsetWidth;
+    let oH = document.querySelector('.canvas-container').offsetHeight;
+    console.log(oW, oH);
+    if (oW < 530) {
+        gCanvas.width = oW;
+        gCanvas.height = oH;
+        return;
+    }
+    let vw = window.innerWidth;
+    let ratio = imgWidth / (0.4 * vw);
+    imgWidth = (0.4 * vw);
+    imgHeight = imgHeight / ratio;
     gCanvas.width = imgWidth;
     gCanvas.height = imgHeight;
-
-    // let parentWidth = document.querySelector('.canvas-container').scrollWidth;
-    // let parentHeight = document.querySelector('.canvas-container').scrollHeight;
-    // let ratio = 1;
-    // if (imgWidth > parentWidth) ratio = imgWidth / parentWidth;
-    // else if (imgHeight > parentHeight) ratio = imgHeight / parentHeight
-
-    // gCanvas.width = imgWidth / ratio;
-    // gCanvas.height = imgHeight / ratio;
 }
 
 function adjustPrefs() {
@@ -90,12 +94,13 @@ function onChangeAlign(id, value) {
     if (value === 'center') offsetX = .5;
     else if (value === 'right') offsetX = .8;
     else offsetX = .2;  //left
-    
+
     topTxt = { x: gCanvas.width * offsetX, y: gCanvas.height - (0.8 * gCanvas.height) };
     bottomTxt = { x: gCanvas.width * offsetX, y: gCanvas.height - (0.2 * gCanvas.height) };
     clearCanvas();
     drawCanvas();
 }
+
 
 
 
