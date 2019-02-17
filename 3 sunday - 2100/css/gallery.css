@@ -30,8 +30,8 @@ body {
     min-height: 100vh;
     margin: 0;
     padding: 5px;
-    /* background-image: linear-gradient(to bottom, #30cfd0 0%, #330867 100%); */
-    background-image: linear-gradient(to top, #fddb92 0%, #d1fdff 100%);
+    background: linear-gradient(#abbaab,#ffffff);
+    
 
 }
 
@@ -42,14 +42,18 @@ body {
 .header-container{
     padding: 20px 50px 20px 50px;
     margin-bottom: 5px;
-    color: rgb(150, 155, 160);
+    color: #ffffff;
     background-color: rgb(40, 40, 40);
 }
 
-.main-nav span:hover, .main-logo:hover {
+a{
+    text-decoration: none;
+}
+
+.main-nav a:hover, .main-logo:hover {
     color: gold;
 }
-.main-nav span:not(:last-child) {
+.main-nav a:not(:last-child) {
     margin-right: 10px
 }
 
@@ -72,13 +76,17 @@ aside {
 
 .keywords-nav{
     color: #ffffff;
-    /* color: rgb(150, 155, 160); */
     background-color: rgb(40, 40, 40);
     margin-bottom: 5px;
 }
 
+.keyword:not(:last-child){
+    margin-right: 50px;
+}
+
 .keyword:hover{
-    text-shadow: 0px 0px 6px rgb(133, 226, 231);
+    color: gold;
+    /* text-shadow: 0px 0px 6px rgb(133, 226, 231); */
 } 
 
 /* BODY */
@@ -87,20 +95,21 @@ aside {
     margin-bottom: 20px;
 }
 
-.img-grid{
-    width: 100%;
-    height: 100%;
-    grid-template-columns: repeat(auto-fill,minmax(200px,1fr));
+.img-grid{  
+    /* width: 100%; */
+    /* height: 100%; */
+    grid-template-columns: repeat(auto-fill,minmax(250px,1fr));
     grid-template-rows: repeat(4, 150px);
     grid-gap: 10px;
     margin-bottom: 5px;
+    margin: 0 auto;
+    max-width: 70%;
 }
 
 .img-grid * {
-    
     opacity: 0.7;
     width: 100%;
-    height:  100%;
+    height: 100%;
     object-fit: cover;
 }
 .img-grid *:hover {
@@ -114,15 +123,19 @@ aside {
     flex-direction: column;
     color: wheat;
     background: linear-gradient(#0F2027,#203A43,#2C5364);
-    max-width: 50%;  
     margin: 0 auto;
-    text-align: right;
     font-family: roboto-reg;
 }
 
 .team-container{
+    /* max-width: 50%; */
     padding: 5px 15px 5px 15px;
     grid-template-columns: 1fr 1fr;
+}
+
+.team-item{
+
+    /* grid-template-columns: 1fr 1fr; */
 }
 
 
@@ -132,18 +145,15 @@ aside {
     width: 180px;
     height: 180px;
     object-fit: cover;
-    /* object-position: center top; */
-    /* object-position: 90% 50%; */
 }
 .team-item img:hover{
    opacity: 1;
 }
 
 .team-item p{
+    max-width: 50%;
     flex-direction: column;
 }
-
-
 
 /*   Helpers   */
 .grid{

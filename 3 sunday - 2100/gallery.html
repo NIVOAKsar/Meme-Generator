@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- <link rel="stylesheet" href="lib/bootstrap/bootstrap.css"> -->
+    <link rel="stylesheet" href="../hexas/hexagons.css">
     <link rel="stylesheet" href="css/gallery.css">
     <title></title>
 </head>
@@ -17,19 +18,19 @@
     <div class="header-container flex space-between align-center">
         <div class="main-logo">The Meme Generator</div>
         <nav class="main-nav">
-            <span onclick="window.location='gallery.html'; localStorage.clear()">Home</span>
-            <span>About</span>
+            <a onclick="window.location='gallery.html'; localStorage.clear()">Home</a>
+            <a onclick="window.location='#about'">About</a>
         </nav>
     </div>
 
     <!-- ASIDE -->
 
     <aside>
-        <input type="text" class="textSearch" placeholder="Fillter By Keywords..."
+        <input type=" text" class="textSearch" placeholder="Fillter By Keywords..."
             onkeydown="window.setTimeout( function(){ onKeyDown(event) }, 1)">
         <div class="fillter-option-container"></div>
     </aside>
-    <div class="keywords-nav flex space-around"></div>
+    <div class="keywords-nav flex center"></div>
 
     <!-- MAIN -->
 
@@ -39,32 +40,32 @@
     </div>
 
     <!-- ABOUT -->
-    <div class="about-container flex align-center">
+    <div id="about" class="about-container flex align-center">
         <h4>TEAM MEMBERS</h4>
         <div class="team-container grid">
-            <div class="team-item grid">
-                <div class="team-img-container flex left">
+            <div class="team-item flex space-between">
+                <div class="team-img-container flex">
                     <img src="niv.jpg" class="left" />
                 </div>
-                <p class="flex center" style="text-align:left;">
+                <p class="flex center">
                     lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem
                     lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem
                 </p>
             </div>
-            <div class="team-item grid">
-                <p class="flex center" style="text-align:left;">
+            <div class="team-item flex space-between">
+                <p class="flex center">
                     21 years old, studied C# 4 years ago.
                     served on idf air-force in communication unit.
                 </p>
-                <div class="team-img-container flex right">
-                    <img src="niv.jpg" class="right" />
+                <div class="team-img-container flex">
+                    <img src="niv.jpg" />
                 </div>
             </div>
         </div>
     </div>
 
 
-    <script src="lib/jquery/jquery.js"></script>
+    <script src=" lib/jquery/jquery.js"> </script>
     <!-- <script src="lib/bootstrap/bootstrap.js"></script> -->
     <script src="js/utils.js"></script>
     <script src="js/gallery-controller.js"></script>
