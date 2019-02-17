@@ -53,7 +53,6 @@ function updateMeme(prop, value) {
             if (prop === 'content-top' || prop === 'content-bottom') prop = 'content';
             itemTxt[prop] = value;
             if(prop==='size' || prop === 'content'){
-                // debugger
                 gCtx.font = `${itemTxt['size']} ${itemTxt['font-family']}`;
                 itemTxt['content-width'] = gCtx.measureText(itemTxt['content']).width;
             }
