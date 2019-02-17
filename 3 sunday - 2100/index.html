@@ -49,7 +49,7 @@
                 Stroke Size
                 <input id="stroke-width" type="range" min="0" max="20" value="3" oninput="onChangePref(id, value)" />
                 Text Align
-                <select id="align">
+                <select id="align" onchange="onChangeAlign(id, value)">
                     <option value="left">Left</option>
                     <option value="center">Center</option>
                     <option value="right">Right</option>

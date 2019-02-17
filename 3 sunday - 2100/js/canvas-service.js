@@ -83,7 +83,17 @@ function onMouseMove(ev) {
     }
 }
 
-
+function onChangeAlign(id, value) {
+    var offsetX = 0;
+    if (value === 'center') offsetX = .5;
+    else if (value === 'right') offsetX = .8;
+    else offsetX = .2;  //left
+    
+    topTxt = { x: gCanvas.width * offsetX, y: gCanvas.height - (0.8 * gCanvas.height) };
+    bottomTxt = { x: gCanvas.width * offsetX, y: gCanvas.height - (0.2 * gCanvas.height) };
+    clearCanvas();
+    drawCanvas();
+}
 
 
 
