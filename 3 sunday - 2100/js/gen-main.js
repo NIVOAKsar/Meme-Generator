@@ -6,6 +6,7 @@ function initGen() {
 }
 
 function onChangePref(id, value) {
+    // debugger
     console.log(value);
     updateMeme(id, value);
     adjustPrefs();
