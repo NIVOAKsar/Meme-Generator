@@ -32,15 +32,17 @@ function createCanvas() {
 function adjustSize() {
     let imgWidth = readMeme().img.naturalWidth;
     let imgHeight = readMeme().img.naturalHeight;
+    gCanvas.width = imgWidth;
+    gCanvas.height = imgHeight;
 
-    let parentWidth = document.querySelector('.canvas-container').scrollWidth;
-    let parentHeight = document.querySelector('.canvas-container').scrollHeight;
-    let ratio = 1;
-    if (imgWidth > parentWidth) ratio = imgWidth / parentWidth;
-    else if (imgHeight > parentHeight) ratio = imgHeight / parentHeight
+    // let parentWidth = document.querySelector('.canvas-container').scrollWidth;
+    // let parentHeight = document.querySelector('.canvas-container').scrollHeight;
+    // let ratio = 1;
+    // if (imgWidth > parentWidth) ratio = imgWidth / parentWidth;
+    // else if (imgHeight > parentHeight) ratio = imgHeight / parentHeight
 
-    gCanvas.width = imgWidth / ratio;
-    gCanvas.height = imgHeight / ratio;
+    // gCanvas.width = imgWidth / ratio;
+    // gCanvas.height = imgHeight / ratio;
 }
 
 function adjustPrefs() {

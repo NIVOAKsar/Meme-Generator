@@ -31,8 +31,6 @@ body {
     margin: 0;
     padding: 5px;
     background: linear-gradient(#abbaab,#ffffff);
-    
-
 }
 
 
@@ -134,11 +132,6 @@ aside {
     grid-template-columns: 1fr 1fr;
 }
 
-.team-item{
-
-    /* grid-template-columns: 1fr 1fr; */
-}
-
 
 .team-item img{
     opacity: 0.7;
@@ -156,17 +149,14 @@ aside {
     flex-direction: column;
 }
 
-/*   Helpers   */
+/*   HELPERS   */
+
 .grid{
     display: grid;
 }
 
 .flex {
     display: flex;
-}
-
-.flex-wrap {
-    flex-wrap: wrap;
 }
 
 .space-between {
@@ -192,10 +182,6 @@ aside {
 .left{
     justify-content: flex-start;
 }
-
-
-
-
 
 .align-center {
     align-items: center;
