@@ -11,15 +11,16 @@ function onChangePref(id, value) {
     updateMeme(id, value);
     drawCanvas();
 }
-function onContentFocus(id){
+function onContentFocus(id) {
     gLastSelectedInputId = id;
 }
 
 function onDownloadLink(elLink, ev) {
+    // ev.preventDefault(); // kills the download
     elLink.href = gCanvas.toDataURL();
     elLink.download = 'my-img.jpg';
 }
 
-function onCanvasClick(ev){
+function onCanvasClick(ev) {
     console.log(ev)
 }
