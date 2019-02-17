@@ -41,7 +41,7 @@ function getImgById(id) {
     })
 }
 
-function getImages() {//ofir
+function getImages() {
     if (!gImgs || gImgs.length === 0) {
         let imgs = loadFromStorage(KEY_IMAGES);
         if (!imgs) {
