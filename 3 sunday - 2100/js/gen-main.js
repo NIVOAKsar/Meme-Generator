@@ -1,4 +1,5 @@
 'use strict';
+var gLastSelectedInputId = '';
 
 function initGen() {
     initMeme();
@@ -7,13 +8,23 @@ function initGen() {
 
 function onChangePref(id, value) {
     // debugger
+    // if (id === 'content-top' || id === 'content-bottom') gLastSelectedInputId = id;
+
     console.log(value);
     updateMeme(id, value);
-    adjustPrefs();
+    // adjustPrefs(id);
     drawCanvas();
+}
+function onContentFocus(id){
+    // debugger
+    gLastSelectedInputId = id;
 }
 
 function onDownloadLink(elLink) {
     elLink.href = gCanvas.toDataURL();
     elLink.download = 'my-img.jpg';
+}
+
+function onCanvasClick(ev){
+    console.log(ev)
 }

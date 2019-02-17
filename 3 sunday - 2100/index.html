@@ -26,9 +26,9 @@
         <form id="form-container" class="flex">
             <section id="txt" class="flex space-evenly">
                 <input id="content-top" type="text" placeholder="Enter Upper Text Here..."
-                    oninput="onChangePref(id, value)" />
+                    oninput="onChangePref(id, value)" onfocus="onContentFocus(id)"/>
                 <input id="content-bottom" type="text" placeholder="Enter Bottom Text Here..."
-                    oninput="onChangePref(id, value)" />
+                    oninput="onChangePref(id, value)" onfocus="onContentFocus(id)"/>
                 Text Size:
                 <input id="size" type="range" min="1" max="250" value="80" oninput="onChangePref(id, value + 'px')" />
                 Text Fill:

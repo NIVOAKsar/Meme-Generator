@@ -6,6 +6,8 @@ var gCanvas;
 var gCtx;
 var currImg;
 var isMouseDown;
+var isDragging = null;
+
 
 function createCanvas() {
     isMouseDown = false;
@@ -13,20 +15,21 @@ function createCanvas() {
     let img = readMeme().img;
     container.innerHTML = `
     <canvas id="main-canvas"
-    onmousedown="isMouseDown=true"
-    onmouseup="isMouseDown=false"
-    onmousemove="onMouseMove(event)">
+    onmousedown="isMouseDown=true; "
+    onmouseup="isMouseDown=false; isDragging=null;"
+    onmousemove="onMouseMove(event)" 
+    onclick="onCanvasClick(event)">
         <img src="${img.src}" onload="currImg=this; drawCanvas()" />
     </canvas>`;
 
     gCanvas = document.querySelector('canvas');
     gCtx = gCanvas.getContext('2d');
     adjustSize();
-    adjustPrefs();
 
-    topTxt = { x: gCanvas.width / 2, y: gCanvas.height - (0.8 * gCanvas.height) };
-    bottomTxt = { x: gCanvas.width / 2, y: gCanvas.height - (0.2 * gCanvas.height) };
-
+    getTxtById('content-top')['x'] = gCanvas.width / 2;
+    getTxtById('content-top')['y'] = gCanvas.height - (0.8 * gCanvas.height)
+    getTxtById('content-bottom')['x'] = gCanvas.width / 2;
+    getTxtById('content-bottom')['y'] = gCanvas.height - (0.2 * gCanvas.height);
 }
 
 function adjustSize() {
@@ -34,42 +37,36 @@ function adjustSize() {
     let imgHeight = readMeme().img.naturalHeight;
     gCanvas.width = imgWidth;
     gCanvas.height = imgHeight;
-
-    // let parentWidth = document.querySelector('.canvas-container').scrollWidth;
-    // let parentHeight = document.querySelector('.canvas-container').scrollHeight;
-    // let ratio = 1;
-    // if (imgWidth > parentWidth) ratio = imgWidth / parentWidth;
-    // else if (imgHeight > parentHeight) ratio = imgHeight / parentHeight
-
-    // gCanvas.width = imgWidth / ratio;
-    // gCanvas.height = imgHeight / ratio;
 }
 
-function adjustPrefs() {
-    let memeTxt = readMeme()['txt'];
-    gCtx.font = `${memeTxt['size']} ${memeTxt['font-family']}`;
-    gCtx.fillStyle = memeTxt['fill-style'];
-    gCtx.strokeStyle = memeTxt['stroke-style'];
-    gCtx.lineWidth = memeTxt['stroke-width'];
-    gCtx.textAlign = memeTxt['align'];
-    gCtx.textBaseline = 'middle';
+function adjustPrefs(item) {
+
+    readMeme()['txt'].forEach(searchedItem => {
+        if (searchedItem.id === item.id) {
+            gCtx.font = `${item['size']} ${item['font-family']}`;
+            gCtx.fillStyle = item['fill-style'];
+            gCtx.strokeStyle = item['stroke-style'];
+            gCtx.lineWidth = item['stroke-width'];
+            gCtx.textAlign = item['align'];
+            gCtx.textBaseline = 'middle';
+        }
+    });
 }
 
 function drawCanvas() {
     gCtx.drawImage(currImg, 0, 0, gCanvas.width, gCanvas.height);
-    gCtx.beginPath();
-    let memeTxt = readMeme()['txt'];
-    if (memeTxt['fill-on']) {
-        gCtx.fillText(memeTxt['content-top'], topTxt['x'], topTxt['y']);
-        gCtx.fillText(memeTxt['content-bottom'], bottomTxt['x'], bottomTxt['y']);
-    }
+    readMeme()['txt'].forEach(item => {
+        adjustPrefs(item)
+        gCtx.beginPath();
+        if (item['fill-on']) {
+            gCtx.fillText(item['content'], item['x'], item['y'])
+        }
 
-    if (memeTxt['stroke-on']) {
-        gCtx.strokeText(memeTxt['content-top'], topTxt['x'], topTxt['y']);
-        gCtx.strokeText(memeTxt['content-bottom'], bottomTxt['x'], bottomTxt['y']);
-    }
-
-    gCtx.closePath();
+        if (item['stroke-on']) {
+            gCtx.strokeText(item['content'], item['x'], item['y'])
+        }
+        gCtx.closePath();
+    });
 }
 
 function clearCanvas() {
@@ -78,21 +75,58 @@ function clearCanvas() {
 
 function onMouseMove(ev) {
     if (isMouseDown) {
+
         let [x, y] = [ev.offsetX, ev.offsetY];
-        topTxt = { x: x, y: y };
-        clearCanvas();
-        drawCanvas();
+
+        readMeme()['txt'].forEach(item => {
+            var minX = item['x'] - (item['content-width'] / 2);
+            var maxX = item['x'] + (item['content-width'] / 2);
+
+            var str = item['size'];
+            var idx = str.indexOf('px');
+            var res = str.substr(0, idx);
+
+            var minY = item['y'] - parseInt(res);
+            var maxY = item['y'] + parseInt(res);
+            console.log('currX: ', x, 'currY', y, 'minX', minX, 'maxX', maxX, 'minY', minY, 'maxY', maxY)
+
+            if (x > minX && x < maxX && y > minY && y < maxY) {
+                
+                 if (isDragging === null || isDragging[0]===item.id) {
+                    isDragging = [item.id];
+
+                    readMeme().isSelected = true;
+                    item['x'] = x;
+                    item['y'] = y;
+
+                    clearCanvas();
+                    drawCanvas();
+                }
+            }
+        });
     }
 }
 
+function getTxtById(id) {
+    return readMeme()['txt'].find(function (item) {
+        return item.id === id;
+    })
+}
 function onChangeAlign(id, value) {
     var offsetX = 0;
     if (value === 'center') offsetX = .5;
     else if (value === 'right') offsetX = .8;
-    else offsetX = .2;  //left
-    
-    topTxt = { x: gCanvas.width * offsetX, y: gCanvas.height - (0.8 * gCanvas.height) };
-    bottomTxt = { x: gCanvas.width * offsetX, y: gCanvas.height - (0.2 * gCanvas.height) };
+    else offsetX = .2;
+
+    var itemTxt = getTxtById(gLastSelectedInputId);
+
+    if (gLastSelectedInputId === 'content-top') {
+        itemTxt['x'] = gCanvas.width * offsetX;
+        itemTxt['y'] = gCanvas.height - (0.8 * gCanvas.height);
+    } else {
+        itemTxt['x'] = gCanvas.width * offsetX;
+        itemTxt['y'] = gCanvas.height - (0.2 * gCanvas.height);
+    }
     clearCanvas();
     drawCanvas();
 }
