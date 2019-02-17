@@ -35,6 +35,19 @@ function createCanvas() {
 function adjustSize() {
     let imgWidth = readMeme().img.naturalWidth;
     let imgHeight = readMeme().img.naturalHeight;
+
+    let oW = document.querySelector('.canvas-container').offsetWidth;
+    let oH = document.querySelector('.canvas-container').offsetHeight;
+    console.log(oW, oH);
+    if (oW < 530) {
+        gCanvas.width = oW;
+        gCanvas.height = oH;
+        return;
+    }
+    let vw = window.innerWidth;
+    let ratio = imgWidth / (0.4 * vw);
+    imgWidth = (0.4 * vw);
+    imgHeight = imgHeight / ratio;
     gCanvas.width = imgWidth;
     gCanvas.height = imgHeight;
 }
@@ -130,6 +143,7 @@ function onChangeAlign(id, value) {
     clearCanvas();
     drawCanvas();
 }
+
 
 
 

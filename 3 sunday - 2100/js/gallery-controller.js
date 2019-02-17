@@ -67,7 +67,7 @@ function renderGallery() {
         strHtml += `<img class="img-gallery" id="${imgs[i].id}" src="${imgs[i].url}" onclick="onImageSelected(this)">`;
     }
     elGrid.innerHTML = strHtml;
-    }
+}
 
 function onImageSelected(el) {
     saveToStorage('img', { id: el.id, src: el.src, naturalWidth: el.naturalWidth, naturalHeight: el.naturalHeight });
@@ -92,7 +92,7 @@ function onWordSelected(word) {
     renderWordsSelector();
 }
 
-function onClearSelection(){
+function onClearSelection() {
     filterByWord = '';
     renderGallery();
 }
