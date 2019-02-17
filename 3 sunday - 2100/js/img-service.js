@@ -54,7 +54,8 @@ function getImages() {//ofir
     return gImgs;
 }
 
-function readImgs() {
+function getImagesToDisplay() {
+    gImgs = getImages();
     var filteredImges = gImgs.filter(function (img) {
         if (filterByWord === '') return true;
         return img.keywords === filterByWord;

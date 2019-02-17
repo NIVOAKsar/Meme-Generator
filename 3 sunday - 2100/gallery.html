@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- <link rel="stylesheet" href="lib/bootstrap/bootstrap.css"> -->
+    <link rel="stylesheet" href="css/gallery.css">
+    <title></title>
+</head>
+
+<body onload="onLoad()">
+
+    <!-- HEADER -->
+
+    <div class="header-container flex space-between align-center">
+        <div class="main-logo">The Meme Generator</div>
+        <nav class="main-nav">
+            <span onclick="window.location='gallery.html'; localStorage.clear()">Home</span>
+            <span>About</span>
+        </nav>
+    </div>
+
+    <!-- ASIDE -->
+
+    <aside>
+        <input type="text" class="textSearch" placeholder="Fillter By Keywords..."
+            onkeydown="window.setTimeout( function(){ onKeyDown(event) }, 1)">
+        <div class="fillter-option-container"></div>
+    </aside>
+    <div class="keywords-nav flex space-around"></div>
+
+    <!-- MAIN -->
+
+    <div class="body-container">
+        <div class="img-grid grid"></div>
+        <div class="about-container"></div>
+    </div>
+    <a href="../hexas/index.html">TO HEXAGONS...</a>
+
+
+
+    <!-- ABOUT -->
+
+
+    <script src="lib/jquery/jquery.js"></script>
+    <!-- <script src="lib/bootstrap/bootstrap.js"></script> -->
+    <script src="js/utils.js"></script>
+    <script src="js/gallery-controller.js"></script>
+    <script src="js/meme-service.js"></script>
+    <script src="js/img-service.js"></script>
+</body>
+
+</html>
